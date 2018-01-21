@@ -1,0 +1,20 @@
+diff --git a/cpp/BoostParts/libs/filesystem/src/operations.cpp b/cpp/BoostParts/libs/filesystem/src/operations.cpp
+index 4114e02a..e373eb98 100644
+--- a/cpp/BoostParts/libs/filesystem/src/operations.cpp
++++ b/cpp/BoostParts/libs/filesystem/src/operations.cpp
+@@ -15,6 +15,7 @@
+ #define _FILE_OFFSET_BITS 64 // at worst, these defines may have no effect,
+ #endif
+ #if !defined(__PGI)
++#if !defined(__ANDROID__)
+ #define __USE_FILE_OFFSET64 // but that is harmless on Windows and on POSIX
+       // 64-bit systems or on 32-bit systems which don't have files larger
+       // than can be represented by a traditional POSIX/UNIX off_t type.
+@@ -25,6 +26,7 @@
+       // ensure that they are available to all included headers.
+       // That is required at least on Solaris, and possibly on other
+       // systems as well.
++#endif
+ #else
+ #define _FILE_OFFSET_BITS 64
+ #endif
