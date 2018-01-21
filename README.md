@@ -1,7 +1,7 @@
 termux-vim-ycm
 ==============
 
-Installing [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) in [Termux](https://termux.com)
+Installing [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) and [vim-go](https://github.com/fatih/vim-go) in [Termux](https://termux.com)
 
 1. Install prereqs
 ```bash
