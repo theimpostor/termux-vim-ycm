@@ -3,42 +3,37 @@ termux-vim-ycm
 
 Installing [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) in [Termux](https://termux.com)
 
-1. Install Prereqs
+1. Install prereqs
 ```bash
 pkg update && pkg upgrade && pkg install procps proot vim-python openssh git golang python python-dev libclang cmake patch curl
 ```
-2. restart termux
-3. setup proot
+2. Restart termux
+3. Setup proot
 ```bash
-cat - <<EOF >> .bashrc
-if ! ps T -o command | grep "^$(type -p proot)" > /dev/null; then
-    echo "starting chroot"
-    exec termux-chroot
-fi
-EOF
+cd ~ && curl -fsSL https://raw.githubusercontent.com/theimpostor/termux-vim-ycm/master/bashrc.patch | patch
 ```
-4. restart termux
-5. install vundle
+4. Restart termux
+5. Install vundle
 ```bash
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
-5. setup .vimrc w/vundle, ycm, vim-go
+5. Setup .vimrc w/vundle, ycm, vim-go
 ```bash
 curl -fsSL https://raw.githubusercontent.com/theimpostor/termux-vim-ycm/master/vundle.vimrc >> ~/.vimrc
 ```
-6. install plugins
+6. Install plugins
 ```bash
 vim +PluginInstall +qall
 ```
-7. patch YCM source to build on android
+7. Patch YCM source to build on android
 ```bash
 cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd && curl https://raw.githubusercontent.com/theimpostor/termux-vim-ycm/master/ycmd.patch | patch -p 1
 ```
-8. build ycm binary
+8. Build ycm binary
 ```bash
 cd ~/.vim/bundle/YouCompleteMe && ./install.py --go-completer --clang-completer --system-libclang
 ```
-9. install binaries for vim-go
+9. Install binaries for vim-go
 ```bash
 vim +GoInstallBinaries
 ```
