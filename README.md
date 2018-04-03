@@ -5,7 +5,7 @@ Installing [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) and [vim-g
 
 1. Install prereqs
 ```bash
-pkg update && pkg upgrade && pkg install procps proot vim-python openssh git golang python python-dev libclang cmake patch curl
+pkg update && pkg upgrade && pkg install procps proot vim-python openssh git golang python python-dev libclang cmake patch curl libcrypt-dev
 ```
 2. Restart termux
 3. Setup proot
